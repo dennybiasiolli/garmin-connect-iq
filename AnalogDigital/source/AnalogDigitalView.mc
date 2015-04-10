@@ -8,13 +8,13 @@ using Toybox.WatchUi as Ui;
 using Toybox.Application as App;
 
 class AnalogDigitalView extends Ui.WatchFace {
-	var timer1;
+	//var timer1;
 	var showSecond = true;
 
     //! Load your resources here
     function onLayout(dc) {
         setLayout(Rez.Layouts.WatchFace(dc));
-    	timer1 = new Timer.Timer();
+    	//timer1 = new Timer.Timer();
     }
 
     //! Restore the state of the app and prepare the view to be shown
@@ -37,7 +37,7 @@ class AnalogDigitalView extends Ui.WatchFace {
         var info = Calendar.info(now, Time.FORMAT_LONG);
 
         //var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
-		var dateStr = Lang.format("$1$ $2$", [info.day_of_week, info.day]);
+		var dateStr = Lang.format("$1$ $2$", [info.day_of_week, info.day.format("%02d")]);
 
         // Clear the screen
         dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
@@ -68,11 +68,11 @@ class AnalogDigitalView extends Ui.WatchFace {
         hour = ( ( ( clockTime.hour % 12 ) * 60 ) + clockTime.min );
         hour = hour / (12 * 60.0);
         hour = hour * Math.PI * 2;
-        drawHand(dc, hour, 70, 4, 15);
+        drawHand(dc, hour, 70, 5, 15);
 
         // Draw the minute
         min = ( clockTime.min / 60.0) * Math.PI * 2;
-        drawHand(dc, min, 95, 3, 15);
+        drawHand(dc, min, 95, 4, 15);
 
         // Draw the seconds
 		if(showSecond){
@@ -90,7 +90,8 @@ class AnalogDigitalView extends Ui.WatchFace {
 
         // Draw digital time
         //var timeString = Lang.format("$1$:$2$:$3$", [clockTime.hour.format("%2d"), clockTime.min.format("%2d"), clockTime.sec.format("%2d")]);
-        var timeString = Lang.format("$1$:$2$", [clockTime.hour.format("%2d"), clockTime.min.format("%2d")]);
+		var nMin = 1;//clockTime.min;
+        var timeString = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
         dc.drawText(width/2, height/5*3, Gfx.FONT_LARGE, timeString, Gfx.TEXT_JUSTIFY_CENTER);
 
@@ -103,15 +104,14 @@ class AnalogDigitalView extends Ui.WatchFace {
     //! The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() {
     	showSecond = true;
-    	timer1.stop();
+    	//timer1.stop();
     }
 
     //! Terminate any active timers and prepare for slow updates.
     function onEnterSleep() {
-    	sleepTime = 1000;
     	showSecond = false;
     	requestUpdate();
-		timer1.start(method(:callback1), 1000, true);
+		//timer1.start(method(:callback1), 1000, true);
     }
 
     //! Draw the watch hand
@@ -162,9 +162,9 @@ class AnalogDigitalView extends Ui.WatchFace {
 		}
     }
 
-    function callback1()
-    {
-        showSecond = true;
-        requestUpdate();
-    }
+    //function callback1()
+    //{
+    //    showSecond = true;
+    //    requestUpdate();
+    //}
 }
