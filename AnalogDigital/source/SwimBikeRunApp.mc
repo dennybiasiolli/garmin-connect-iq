@@ -1,6 +1,6 @@
 using Toybox.Application as App;
 
-class AnalogDigitalApp extends App.AppBase {
+class SwimBikeRunApp extends App.AppBase {
 
     //! onStart() is called on application start up
     function onStart() {
@@ -12,7 +12,7 @@ class AnalogDigitalApp extends App.AppBase {
 
     //! Return the initial view of your application here
     function getInitialView() {
-        return [ new AnalogDigitalView() ];
+        return [ new SwimBikeRunView() ];
     }
 
 }
