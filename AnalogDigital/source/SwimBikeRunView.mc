@@ -76,6 +76,10 @@ class SwimBikeRunView extends Ui.WatchFace {
         drawHashMarks(dc);
 
 
+		// Draw analog time
+		drawHands(dc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY);
+
+
         // Draw the logo
         dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
         dc.drawText(width_screen/2, height_screen/6, Gfx.FONT_MEDIUM, "TRIATHLON", Gfx.TEXT_JUSTIFY_CENTER);
@@ -88,9 +92,6 @@ class SwimBikeRunView extends Ui.WatchFace {
         //dc.drawText(width_screen/2 + 10, height_screen/7*2, Gfx.FONT_LARGE, "Bike", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT);
         //dc.drawText(width_screen/4*3 + 10, height_screen/7*2, Gfx.FONT_LARGE, "Run", Gfx.TEXT_JUSTIFY_CENTER);
-
-
-		drawHands(dc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY, Gfx.COLOR_LT_GRAY);
 
 
 		// Draw the battery icon
@@ -148,7 +149,7 @@ class SwimBikeRunView extends Ui.WatchFace {
             var x = (coords[i][0] * cos) - (coords[i][1] * sin);
             var y = (coords[i][0] * sin) + (coords[i][1] * cos);
             result[i] = [ centerX + x, centerY + y];
-            if(false)//drawCircleOnTop)
+            if(drawCircleOnTop)
             {
             	if(i == 0)
             	{
