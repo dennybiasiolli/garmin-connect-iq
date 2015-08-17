@@ -47,8 +47,8 @@ class SwimBikeRunView extends Ui.WatchFace {
 		}
 
 		//get battery icon position
-		batt_x = (width_screen/2) - (batt_width_rect/2) - (batt_width_rect_small/2);
-		batt_y = (height_screen/5*4) - (batt_height_rect/2);
+		batt_x = (width_screen / 7 * 2) - (batt_width_rect/2) - (batt_width_rect_small/2);
+		batt_y = (height_screen / 2) - (batt_height_rect/2);
 		batt_x_small = batt_x + batt_width_rect;
 		batt_y_small = batt_y + ((batt_height_rect - batt_height_rect_small) / 2);
 
@@ -82,8 +82,9 @@ class SwimBikeRunView extends Ui.WatchFace {
 
         // Draw the logo
         dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
-        dc.drawText(width_screen/2, height_screen/6, Gfx.FONT_MEDIUM, "TRIATHLON", Gfx.TEXT_JUSTIFY_CENTER);
-        dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "SwimBikeRun", Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width_screen/2, height_screen/6, Gfx.FONT_SMALL, "Keep Calm and", Gfx.TEXT_JUSTIFY_CENTER);
+		dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "TRIATHLON", Gfx.TEXT_JUSTIFY_CENTER);
+        //dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "SwimBikeRun", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen/2, height_screen/6, Gfx.FONT_LARGE, "IRONMAN", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen/2, height_screen/7*2, Gfx.FONT_MEDIUM, "Swim Bike Run", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.setColor(Gfx.COLOR_DK_BLUE, Gfx.COLOR_TRANSPARENT);
@@ -120,7 +121,7 @@ class SwimBikeRunView extends Ui.WatchFace {
         //var timeString = Lang.format("$1$:$2$:$3$", [clockTime.hour.format("%2d"), clockTime.min.format("%2d"), clockTime.sec.format("%2d")]);
         var timeString = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
         dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
-        dc.drawText(width_screen/2, height_screen/5*3, Gfx.FONT_LARGE, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width_screen/2, height_screen/6*3, Gfx.FONT_NUMBER_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
     }
 
     //! Draw the watch hand
