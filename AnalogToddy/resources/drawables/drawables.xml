@@ -1,0 +1,13 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+	<bitmap id="BackLogo" filename="FullSizeRender_transparent.png">
+		<palette>
+			<color>FFFFFF</color>
+			<color>CF4551</color>
+			<color>152981</color>
+			<color>5B669C</color>
+			<color>000000</color>
+		</palette>
+	</bitmap>
+
+</drawables>
