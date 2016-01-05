@@ -1,6 +1,6 @@
 using Toybox.Application as App;
 
-class SwimBikeRunApp extends App.AppBase {
+class KeepCalmAndTriathlonApp extends App.AppBase {
 
     //! onStart() is called on application start up
     function onStart() {
@@ -12,7 +12,7 @@ class SwimBikeRunApp extends App.AppBase {
 
     //! Return the initial view of your application here
     function getInitialView() {
-        return [ new SwimBikeRunView() ];
+        return [ new KeepCalmAndTriathlonView() ];
     }
 
 }

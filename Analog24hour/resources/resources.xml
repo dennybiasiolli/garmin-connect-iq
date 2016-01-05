@@ -1,5 +1,0 @@
-<resources>
-    <string id="AppName">Analog24hour</string>
-
-    <bitmap id="LauncherIcon" filename="images/launcher_icon.png" />
-</resources>
