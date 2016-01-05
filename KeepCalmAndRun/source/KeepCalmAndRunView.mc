@@ -7,7 +7,7 @@ using Toybox.Time.Gregorian as Calendar;
 using Toybox.WatchUi as Ui;
 using Toybox.Application as App;
 
-class SwimBikeRunView extends Ui.WatchFace {
+class KeepCalmAndRunView extends Ui.WatchFace {
 	var showSecond = true;
 	var background_color = Gfx.COLOR_BLACK;
 	var width_screen, height_screen;
@@ -83,8 +83,8 @@ class SwimBikeRunView extends Ui.WatchFace {
         // Draw the logo
         dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
         dc.drawText(width_screen/2, height_screen/6, Gfx.FONT_SMALL, "Keep Calm and", Gfx.TEXT_JUSTIFY_CENTER);
-		dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "TRIATHLON", Gfx.TEXT_JUSTIFY_CENTER);
-        //dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "SwimBikeRun", Gfx.TEXT_JUSTIFY_CENTER);
+		dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "RUN", Gfx.TEXT_JUSTIFY_CENTER);
+        //dc.drawText(width_screen/2, height_screen/4, Gfx.FONT_LARGE, "KeepCalmAndRun", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen/2, height_screen/6, Gfx.FONT_LARGE, "IRONMAN", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen/2, height_screen/7*2, Gfx.FONT_MEDIUM, "Swim Bike Run", Gfx.TEXT_JUSTIFY_CENTER);
         //dc.setColor(Gfx.COLOR_DK_BLUE, Gfx.COLOR_TRANSPARENT);
