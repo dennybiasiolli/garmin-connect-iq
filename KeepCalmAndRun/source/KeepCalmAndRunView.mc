@@ -133,7 +133,7 @@ class KeepCalmAndRunView extends Ui.WatchFace {
         //var timeString = Lang.format("$1$:$2$:$3$", [clockTime.hour.format("%2d"), clockTime.min.format("%2d"), clockTime.sec.format("%2d")]);
         var timeString = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
         dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
-        dc.drawText(width_screen/2, height_screen/6*3, Gfx.FONT_NUMBER_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width_screen/2, (height_screen/32)*24, Gfx.FONT_NUMBER_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER + Gfx.TEXT_JUSTIFY_VCENTER);
     }
 
     //! Draw the watch hand
