@@ -2,15 +2,19 @@ using Toybox.Application as App;
 
 class KeepCalmAndTriathlonApp extends App.AppBase {
 
-    //! onStart() is called on application start up
-    function onStart() {
+    function initialize() {
+        AppBase.initialize();
     }
 
-    //! onStop() is called when your application is exiting
-    function onStop() {
+    // onStart() is called on application start up
+    function onStart(state) {
     }
 
-    //! Return the initial view of your application here
+    // onStop() is called when your application is exiting
+    function onStop(state) {
+    }
+
+    // Return the initial view of your application here
     function getInitialView() {
         return [ new KeepCalmAndTriathlonView() ];
     }

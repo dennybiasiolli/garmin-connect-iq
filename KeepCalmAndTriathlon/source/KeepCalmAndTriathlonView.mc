@@ -20,7 +20,11 @@ class KeepCalmAndTriathlonView extends Ui.WatchFace {
 	var batt_height_rect_small = 5;
 	var batt_x, batt_y, batt_x_small, batt_y_small;
 
-    //! Load your resources here
+    function initialize() {
+        WatchFace.initialize();
+    }
+
+    // Load your resources here
     function onLayout(dc) {
     	//get screen dimensions
 		width_screen = dc.getWidth();
@@ -55,11 +59,13 @@ class KeepCalmAndTriathlonView extends Ui.WatchFace {
         setLayout(Rez.Layouts.WatchFace(dc));
     }
 
-    //! Restore the state of the app and prepare the view to be shown
+    // Called when this View is brought to the foreground. Restore
+    // the state of this View and prepare it to be shown. This includes
+    // loading resources into memory.
     function onShow() {
     }
 
-    //! Update the view
+    // Update the view
     function onUpdate(dc) {
         var clockTime = Sys.getClockTime();
 
@@ -105,23 +111,29 @@ class KeepCalmAndTriathlonView extends Ui.WatchFace {
 		drawDate(dc, Gfx.COLOR_WHITE);
     }
 
-    //! The user has just looked at their watch. Timers and animations may be started here.
+    // Called when this View is removed from the screen. Save the
+    // state of this View here. This includes freeing resources from
+    // memory.
+    function onHide() {
+    }
+
+    // The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() {
     	showSecond = true;
     }
 
-    //! Terminate any active timers and prepare for slow updates.
+    // Terminate any active timers and prepare for slow updates.
     function onEnterSleep() {
     	showSecond = false;
     	requestUpdate();
     }
-    
+
     function drawDigitalTime(dc, text_color, clockTime)
     {
         //var timeString = Lang.format("$1$:$2$:$3$", [clockTime.hour.format("%2d"), clockTime.min.format("%2d"), clockTime.sec.format("%2d")]);
         var timeString = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
         dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
-        dc.drawText(width_screen/2, height_screen/6*3, Gfx.FONT_NUMBER_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width_screen/2, (height_screen/32)*24, Gfx.FONT_NUMBER_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER + Gfx.TEXT_JUSTIFY_VCENTER);
     }
 
     //! Draw the watch hand
