@@ -20,6 +20,14 @@ class Analog24hourView extends Ui.WatchFace {
 	var batt_height_rect_small = 5;
 	var batt_x, batt_y, batt_x_small, batt_y_small;
 
+    var is24Hour = true;
+
+    function initialize() {
+        var settings = Sys.getDeviceSettings();
+        is24Hour = settings.is24Hour;
+        WatchFace.initialize();
+    }
+
     //! Load your resources here
     function onLayout(dc) {
     	//get screen dimensions
@@ -108,8 +116,16 @@ class Analog24hourView extends Ui.WatchFace {
     
     function drawDigitalTime(dc, text_color, clockTime)
     {
+        var hour = clockTime.hour;
+        var ampm = "";
+        if (!is24Hour)
+        {
+            //handle midnight and noon, which return as 0
+            hour = clockTime.hour % 12 == 0 ? 12 : clockTime.hour % 12 ;
+            ampm = clockTime.hour >= 12 && clockTime.hour < 24 ? " PM" : " AM";
+        }
         //var timeString = Lang.format("$1$:$2$:$3$", [clockTime.hour.format("%2d"), clockTime.min.format("%2d"), clockTime.sec.format("%2d")]);
-        var timeString = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
+        var timeString = Lang.format("$1$:$2$$3$", [hour.format("%02d"), clockTime.min.format("%02d"), ampm]);
         dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
         dc.drawText(width_screen/2, height_screen/5*3, Gfx.FONT_LARGE, timeString, Gfx.TEXT_JUSTIFY_CENTER);
     }
