@@ -74,4 +74,19 @@ monkeyc -e \
 
 ## Cleanup
 
-Remove Garmin ConnectIQ directory, usually in `~/Library/Application Support/Garmin/ConnectIQ`
+- Remove Garmin ConnectIQ directory, usually in `~/Library/Application Support/Garmin/ConnectIQ`
+
+- Delete `Eclipse.app` from your `Applications`
+
+- Delete `eclipse-workspace` from your home directory
+
+    `rm -rf ~/eclipse-workspace`
+
+- Remove Eclipse service files
+
+    ```bash
+    rm -rf ~/.eclipse
+    rm -rf ~/Library/Caches/org.eclipse.platform.ide
+    rm -rf ~/Library/Saved Application State/org.eclipse.platform.ide.savedState
+    rm -rf ~/Library/Preferences/org.eclipse.platform.ide.plist
+    ```
