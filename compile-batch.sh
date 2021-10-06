@@ -1,28 +1,31 @@
-monkeyc -e \
-    -o Analog24hour.iq \
+MONKEYC=~/Library/Application\ Support/Garmin/ConnectIQ/Sdks/connectiq-sdk-mac-4.0.5-2021-08-10-29788b0dc/bin/monkeyc
+CERTIFICATE=~/Downloads/developer_key.der
+
+$MONKEYC -e \
+    -o out/Analog24hour.iq \
     -w -f Analog24hour/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
 monkeyc -e \
-    -o AnalogDigital.iq \
+    -o out/AnalogDigital.iq \
     -w -f AnalogDigital/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
 monkeyc -e \
-    -o KeepCalmAndDuathlon.iq \
+    -o out/KeepCalmAndDuathlon.iq \
     -w -f KeepCalmAndDuathlon/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
 monkeyc -e \
-    -o KeepCalmAndRideBike.iq \
+    -o out/KeepCalmAndRideBike.iq \
     -w -f KeepCalmAndRideBike/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
 monkeyc -e \
-    -o KeepCalmAndRun.iq \
+    -o out/KeepCalmAndRun.iq \
     -w -f KeepCalmAndRun/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
 monkeyc -e \
-    -o KeepCalmAndSwim.iq \
+    -o out/KeepCalmAndSwim.iq \
     -w -f KeepCalmAndSwim/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
 monkeyc -e \
-    -o KeepCalmAndTriathlon.iq \
+    -o out/KeepCalmAndTriathlon.iq \
     -w -f KeepCalmAndTriathlon/monkey.jungle \
-    -y $HOME/Downloads/developer_key.der
+    -y $CERTIFICATE
