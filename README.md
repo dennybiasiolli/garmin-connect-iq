@@ -22,21 +22,9 @@ to setup your Windows or Mac.
 
 - Close the SDK Manager
 
-- Install `Eclipse IDE for Java Developers`
+- Install `Visual Studio Code Monkey C Extension`
 
-- In Eclipse, click the `Help` menu
-
-- Choose `Install New Software...`
-
-- Click the `Add...` button
-
-- Add `https://developer.garmin.com/downloads/connect-iq/eclipse` to the Location field and click `Add`
-
-- Check the box next to `Connect IQ` in the Available Software window and click `Next`
-
-- Review the license agreement and click `Finish`
-
-- Once the installation completes, restart Eclipse
+- In VS Code, click Ctrl + Shift + P (Command + Shift + P on Mac) and select "Monkey C: Verify Installation"
 
 
 ## Upload apps on Connect IQ Store
@@ -76,17 +64,4 @@ monkeyc -e \
 
 - Remove Garmin ConnectIQ directory, usually in `~/Library/Application Support/Garmin/ConnectIQ`
 
-- Delete `Eclipse.app` from your `Applications`
-
-- Delete `eclipse-workspace` from your home directory
-
-    `rm -rf ~/eclipse-workspace`
-
-- Remove Eclipse service files
-
-    ```bash
-    rm -rf ~/.eclipse
-    rm -rf ~/Library/Caches/org.eclipse.platform.ide
-    rm -rf ~/Library/Saved Application State/org.eclipse.platform.ide.savedState
-    rm -rf ~/Library/Preferences/org.eclipse.platform.ide.plist
-    ```
+- Delete `Visual Studio Code Monkey C Extension`
